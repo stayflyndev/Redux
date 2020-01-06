@@ -57,3 +57,11 @@
 .formSpan{
   padding-bottom: 40px;
 }
+
+.icon{
+
+}
+
+/* svg:not(:root){
+  overflow: visible !important;
+} */

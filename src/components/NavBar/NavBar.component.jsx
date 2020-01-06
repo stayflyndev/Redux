@@ -9,7 +9,7 @@ import Register from '../Login/Register/Register.component'
 import { Link } from 'react-router-dom';
 import {auth} from '../../firebase/firebase.utils';
 import {connect} from 'react-redux';
-
+import Icon from './Icon'
 
 
 const useStyles = makeStyles(theme => ({
@@ -39,6 +39,9 @@ const NavBar = ({currentUser}) => {
             <Typography variant="h6" className={classes.title}>
           Where Food is ...
             </Typography>
+            <div className="icon"></div>
+           
+         
            
             {/* <Button component={Link} to='/login' color="inherit">Login</Button> */}
           
@@ -48,6 +51,7 @@ const NavBar = ({currentUser}) => {
              :
              <Button component={Link} to='/login'>Sign In</Button>             
            }
+            <Icon />
           </Toolbar>
         </AppBar>
       </div>
