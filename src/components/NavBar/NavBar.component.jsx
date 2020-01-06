@@ -8,6 +8,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Register from '../Login/Register/Register.component'
 import { Link } from 'react-router-dom';
 import {auth} from '../../firebase/firebase.utils';
+import {connect} from 'react-redux';
+
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -52,6 +55,18 @@ const NavBar = ({currentUser}) => {
 }
 
 
-// 
+// funtion that allows us to access the rootReducer 
+// state is rootReducer 
+// pass in 
+const mapStateToProps = state => ({
+ currentUser: state.user.currentUser
+})
+
+
+export default connect(mapStateToProps)(NavBar);
+
+
+
+
+
 // #b53f7d
-export default NavBar;

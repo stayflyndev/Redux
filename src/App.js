@@ -10,20 +10,18 @@ import Register from './pages/Login/Login'
 import Shop from './pages/Shop/Shop.component'
 import Header from './components/NavBar/NavBar.component'
 import { auth, storeUserProfileDocument } from './firebase/firebase.utils'
+import {connect} from 'react-redux'
+import {setCurrentUser} from './redux/user/users.actions'
 
 class App extends Component {
-  constructor(props) {
-    super(props);
 
-    // signed in?
-    this.state = {
-      currentUser: null
-    }
-  }
   // property
   unsubscribeFromAuth = null
 
   componentDidMount() {
+
+
+    const {setCurrentUser} = this.props
     // whens someone signs in/out be aware without having to manually fetch
     // always aware when fb auth state has changed
     // subscriber --  // always open
@@ -33,17 +31,14 @@ class App extends Component {
 
       //  get the snapshot details in order to set the state
        userRef.onSnapshot(snapShot => {
-         this.setState({currentUser: {
+        setCurrentUser( {
            id: snapShot.id,
            ...snapShot.data()
-         }}, () => {
-          console.log(this.state)
-
-         })
-        
+         }) }, () => {
+          console.log(this.state)        
        })
      }
-     this.setState({ currentUser: authUser})
+     setCurrentUser( authUser)
     })
 
   }
@@ -61,7 +56,7 @@ class App extends Component {
         {/* start of the APP  *
      {/* nav bar and listing of categories */
         }
-        <Header currentUser={this.state.currentUser} />
+        <Header />
         <Route exact path='/' component={HomePage} />
         <Route path='/mexican/' component={MexicanPage} />
         <Route path='/jamaican/' component={JamaicanPage} />
@@ -80,4 +75,8 @@ class App extends Component {
   };
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch (setCurrentUser(user))
+})
+
+export default connect(null, mapDispatchToProps)(App);
