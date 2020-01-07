@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 const cartReducr = (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case 'TOGGLE_CART':
-        return{
+        return {
             ...state,
             hidden: !state.hidden
         }

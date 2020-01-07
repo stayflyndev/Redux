@@ -31,7 +31,7 @@ export default function CartDropdown() {
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
         </ListItemAvatar>
         <ListItemText
-          primary="Brunch this weekend?"
+          primary="Here are the items in your cart"
           secondary={
             <React.Fragment>
               <Typography
@@ -40,9 +40,9 @@ export default function CartDropdown() {
                 className={classes.inline}
                 color="textPrimary"
               >
-                Ali Connors
+                Mexican Burrito
               </Typography>
-              {" — I'll be in your neighborhood doing errands this…"}
+              {" — Are you ready to checkout…"}
             </React.Fragment>
           }
         />

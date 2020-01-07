@@ -11,6 +11,7 @@ import {auth} from '../../firebase/firebase.utils';
 import {connect} from 'react-redux';
 import Icon from './Icon';
 import CartDropdown from '../Cart/CartDropdown.component'
+import { ninvoke } from 'q';
 
 
 const useStyles = makeStyles(theme => ({
@@ -28,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     }
   }));
 
-const NavBar = ({currentUser}) => {
+const NavBar = ({currentUser, hidden}) => {
     const classes = useStyles();
 
     return (
@@ -60,9 +61,12 @@ const NavBar = ({currentUser}) => {
         </AppBar>
     
       </div>
+      { hidden ? null :  <CartDropdown />  }
+
+
       
-      <CartDropdown />
       </div>
+      
     );
 }
 
@@ -70,8 +74,10 @@ const NavBar = ({currentUser}) => {
 // funtion that allows us to access the rootReducer 
 // state is rootReducer 
 // pass in 
-const mapStateToProps = state => ({
- currentUser: state.user.currentUser
+
+const mapStateToProps = ({ user: {currentUser}, cart: { hidden } }) => ({
+ currentUser,
+ hidden
 })
 
 
