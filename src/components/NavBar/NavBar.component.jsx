@@ -9,7 +9,8 @@ import Register from '../Login/Register/Register.component'
 import { Link } from 'react-router-dom';
 import {auth} from '../../firebase/firebase.utils';
 import {connect} from 'react-redux';
-import Icon from './Icon'
+import Icon from './Icon';
+import CartDropdown from '../Cart/CartDropdown.component'
 
 
 const useStyles = makeStyles(theme => ({
@@ -33,6 +34,7 @@ const NavBar = ({currentUser}) => {
     return (
     
         <div className={classes.root}>
+          <div>
         <AppBar position="static" className={classes.appBar}>
           <Toolbar>
             
@@ -52,8 +54,14 @@ const NavBar = ({currentUser}) => {
              <Button component={Link} to='/login'>Sign In</Button>             
            }
             <Icon />
+            
           </Toolbar>
+          
         </AppBar>
+    
+      </div>
+      
+      <CartDropdown />
       </div>
     );
 }
