@@ -3,7 +3,7 @@ import CartActionTypes from "./cart.types"
 
 const INITIAL_STATE = {
     hidden: true,
-    cartItems: []
+    cartItems: [] //add or clear items
 }
 
 const cartReducr = (state = INITIAL_STATE, action) => {

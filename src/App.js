@@ -60,10 +60,10 @@ class App extends Component {
         <Header />
         <Switch>
         <Route exact path='/' component={HomePage} />
-        <Route path='/mexican/' component={MexicanPage} />
-        <Route path='/jamaican/' component={JamaicanPage} />
-        <Route path='/chinese/' component={ChinesePage} />
-        <Route path='/bbq/' component={BBQPage} />
+        <Route path='/mexican/' component={Shop} />
+        <Route path='/jamaican/' component={Shop} />
+        <Route path='/chinese/' component={Shop} />
+        <Route path='/bbq/' component={Shop} />
         <Route path='/shop' component={Shop} />
       <Route exact path='/login' render={() => this.props.currentUser ?
        ( <Redirect to='/' /> )

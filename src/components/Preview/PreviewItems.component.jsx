@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import '../../App.css'
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles({
@@ -40,10 +41,14 @@ function PreviewItems({ items, title }) {
                             {title}
                             <div>
                                 {items
-                                    .filter((item, idx) => idx < 2)
+                                    .filter((item, idx) => idx < 4)
                                     .map(item => (
                                         <div className="padding">
-                                            {item.name} $ {item.price}
+                                            {item.name} 
+                                            <div>starting at:  $ {item.price} </div>
+                                            <img src={item.imageUrl} alt={title} cols={1} className="images"/>
+
+                                            <Button component={Link} to='/login'>LETS EAT</Button>
                                         </div>
                                     ))}
                             </div>

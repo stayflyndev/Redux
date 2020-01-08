@@ -23,10 +23,10 @@ const FOOD = [
     },
     {
         id: 3,
-        title: "BBQ",
+        title: "Italian",
         link: "bbq",
         price: "20",
-        img: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80'
+        img: 'https://images.unsplash.com/photo-1555072956-7758afb20e8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80s'
       }
     
   ]
